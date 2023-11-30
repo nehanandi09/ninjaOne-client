@@ -25,6 +25,13 @@ const DeviceModal = ({ onCancelClick, onSubmitClick, device, testId }) => {
           <h2 className={styles.modal__title}>
             {device ? 'Edit device' : 'Add device'}
           </h2>
+          <button
+            aria-label='Close modal'
+            className={styles.modal__close}
+            onClick={onCancelClick}
+          >
+            <CrossIcon className={styles.modal__closeIcon} />
+          </button>
         </div>
         <div className={styles.modal__form}>
           <div className={styles.modal__form_group}>
