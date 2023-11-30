@@ -1,0 +1,28 @@
+@import '../../../style/_variables.scss';
+
+.selectContainer {
+  position: relative;
+  border: 1px solid #D1D0D9;
+  border-radius: 4px;
+  font-size: $regular-text;
+  display: flex;
+  align-items: center;
+  padding: 0px 12px;
+  box-sizing: border-box;
+  .innerLabel {
+    display: inline-block;
+  }
+}
+
+.outterLabel {
+  text-align: left;
+  width: 100%;
+  margin-top: 12px;
+}
+
+@media (max-width: 950px) {
+  /* Styles for smaller screens */
+  .selectContainer {
+    width: 100%;
+  }
+}

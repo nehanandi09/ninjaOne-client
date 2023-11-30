@@ -1,0 +1,63 @@
+@import '../../../style/_variables.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 50px;
+}
+
+.contentWrapper {
+  padding: 0px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.topContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__title {
+    font-size: $subtitle-text;
+    font-weight: 500;
+  }
+}
+
+.filtersBar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  & :last-child {
+    margin-left: auto;
+  }
+  &__refreshContainer {
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    border: none;
+    background: tran;
+    &:hover {
+      cursor: pointer;
+      animation: spin 2s infinite linear;
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 950px) {
+  .filtersBar {
+    flex-direction: column;
+    & :last-child {
+      margin-left: 0;
+    }
+  }
+}

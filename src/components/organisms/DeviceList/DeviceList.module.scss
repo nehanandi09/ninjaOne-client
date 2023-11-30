@@ -1,0 +1,12 @@
+@import '../../../style/_variables.scss';
+
+.devicesList {
+  &__header {
+    border-bottom: 1px solid #CBCFD3;
+    padding-bottom: 8px;
+  }
+  &__title {
+    font-weight: 500;
+    font-size: $regular-text;
+  }
+}
