@@ -111,8 +111,8 @@ const DeviceItem = ({ device, dataKey }) => {
             aria-label='Open device menu'
             onClick={handleCollapseMenu}
             className={styles.container__menuButton}
-        >
-          <ThreeDotsIcon />
+          >
+            <ThreeDotsIcon />
           </button>
           {collapseOptions && (
             <div
