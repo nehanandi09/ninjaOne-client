@@ -1,22 +1,31 @@
-import { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
+import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
-import Button from '../../atoms/Button'
-import SelectInput from '../SelectInput'
+import Button from '../../atoms/Button';
+import SelectInput from '../SelectInput';
 
-import {ReactComponent as CrossIcon} from '../../../assets/cross.svg'
+import { ReactComponent as CrossIcon } from '../../../assets/cross.svg';
 
-import styles from './DeviceModal.module.scss'
+import styles from './DeviceModal.module.scss';
 
-const DeviceModal = ({ onCancelClick, onSubmitClick, device, testId }) => {
-  const [name, setName] = useState(device?.system_name || '')
-  const [type, setType] = useState(device?.type ||'')
-  const [capacity, setCapacity] = useState(device?.hdd_capacity || '')
+const DeviceModal = ({
+  onCancelClick,
+  onSubmitClick,
+  device,
+  testId
+}) => {
+  const [name, setName] = useState(device?.system_name || '');
+  const [type, setType] = useState(device?.type || '');
+  const [capacity, setCapacity] = useState(
+    device?.hdd_capacity || ''
+  );
 
   useEffect(() => {
-    document.body.style.overflow = 'hidden'
-    return () => {document.body.style.overflow = 'scroll'}
-  }, [])
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'scroll';
+    };
+  }, []);
 
   return (
     <div data-testid={testId} className={styles.backdrop}>
@@ -39,8 +48,8 @@ const DeviceModal = ({ onCancelClick, onSubmitClick, device, testId }) => {
             <input
               value={name}
               data-testid={'name-input'}
-              onChange={({target}) => setName(target.value)}
-              aria-label="System name"
+              onChange={({ target }) => setName(target.value)}
+              aria-label='System name'
             />
             {!name && <small>This field is required!</small>}
           </div>
@@ -50,7 +59,7 @@ const DeviceModal = ({ onCancelClick, onSubmitClick, device, testId }) => {
               testId={'type-input'}
               onChange={({ value }) => setType(value)}
               value={type}
-              aria-label="Device type"
+              aria-label='Device type'
               options={[
                 {
                   label: 'Selected device',
@@ -78,7 +87,7 @@ const DeviceModal = ({ onCancelClick, onSubmitClick, device, testId }) => {
             <input
               value={capacity}
               data-testid={'capacity-input'}
-              onChange={({target}) => setCapacity(target.value)}
+              onChange={({ target }) => setCapacity(target.value)}
               type='number'
             />
             {!capacity && <small>This field is required!</small>}
@@ -93,11 +102,13 @@ const DeviceModal = ({ onCancelClick, onSubmitClick, device, testId }) => {
           />
           <Button
             testId={'submit-button'}
-            isDisabled={!(
-              name.length > 0 &&
-              type.length> 0 &&
-              capacity.length > 0
-            )}
+            isDisabled={
+              !(
+                name.length > 0 &&
+                type.length > 0 &&
+                capacity.length > 0
+              )
+            }
             onClick={() => onSubmitClick(name, type, capacity)}
             text={'Submit'}
             variant={'primary'}
@@ -105,9 +116,8 @@ const DeviceModal = ({ onCancelClick, onSubmitClick, device, testId }) => {
         </div>
       </div>
     </div>
-  )
-}
-
+  );
+};
 
 DeviceModal.propTypes = {
   onCancelClick: PropTypes.func.isRequired,
@@ -117,7 +127,7 @@ DeviceModal.propTypes = {
     type: PropTypes.string,
     hdd_capacity: PropTypes.string
   }),
-  testId: PropTypes.string,
-}
+  testId: PropTypes.string
+};
 
-export default DeviceModal
+export default DeviceModal;
