@@ -120,7 +120,6 @@ const DeviceItem = ({ device, dataKey }) => {
               className={styles.container__menu}
             >
               <button
-                aria-label=''
                 className={styles.container__menuItem}
                 onClick={() => setEditModalOpen(true)}
               >
