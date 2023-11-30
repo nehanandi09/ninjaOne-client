@@ -105,10 +105,15 @@ const DeviceItem = ({ device, dataKey }) => {
         <div
           ref={ref}
           data-testid='device-menu-toggle'
-          onClick={handleCollapseMenu}
           className={styles.container__options}
         >
+          <button
+            aria-label='Open device menu'
+            onClick={handleCollapseMenu}
+            className={styles.container__menuButton}
+        >
           <ThreeDotsIcon />
+          </button>
           {collapseOptions && (
             <div
               data-testid='device-menu'

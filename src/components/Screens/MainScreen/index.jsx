@@ -191,7 +191,8 @@ const MainScreen = () => {
             options={sortOptions}
             onChange={({ value }) => handleSortList(value)}
           />
-          <div
+          <button
+            aria-label='Refresh'
             className={styles.filtersBar__refreshContainer}
             onClick={handleRefresh}
           >
@@ -199,7 +200,7 @@ const MainScreen = () => {
               data-testid='refresh-icon'
               className={styles.filtersBar__refresh}
             />
-          </div>
+          </button>
         </div>
         <DeviceList devicesList={filteredList} title={'Devices'} />
       </div>
