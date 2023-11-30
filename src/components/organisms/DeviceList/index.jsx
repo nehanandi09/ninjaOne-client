@@ -7,7 +7,7 @@ const DeviceList = ({ title, devicesList }) => {
   return (
     <div className={styles.devicesList}>
       <div className={styles.devicesList__header}>
-        <span className={styles.devicesList__title}>{title}</span>
+        <h2 className={styles.devicesList__title}>{title}</h2>
       </div>
       {devicesList &&
         devicesList.map((device) => {

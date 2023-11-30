@@ -166,7 +166,7 @@ const MainScreen = () => {
       <Header />
       <div className={styles.contentWrapper}>
         <div className={styles.topContainer}>
-          <span className={styles.topContainer__title}>Devices</span>
+          <h1 className={styles.topContainer__title}>Devices</h1>
           <Button
             testId={'add-button'}
             icon={'plus'}
