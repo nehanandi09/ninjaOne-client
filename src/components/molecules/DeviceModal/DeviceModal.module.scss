@@ -34,6 +34,13 @@
       cursor: pointer;
     }
   }
+  &__closeIcon {
+    &:hover {
+      width: 18px;
+      height: 18px;
+      transition: ease-in-out 0.1s;
+    }
+  }
   &__title {
     font-size: $title-text;
     font-weight: 500;
