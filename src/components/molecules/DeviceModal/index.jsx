@@ -22,10 +22,9 @@ const DeviceModal = ({ onCancelClick, onSubmitClick, device, testId }) => {
     <div data-testid={testId} className={styles.backdrop}>
       <div className={styles.modal}>
         <div className={styles.modal__header}>
-          <span className={styles.modal__title}>
+          <h2 className={styles.modal__title}>
             {device ? 'Edit device' : 'Add device'}
-          </span>
-          <CrossIcon onClick={onCancelClick} className={styles.modal__close}/>
+          </h2>
         </div>
         <div className={styles.modal__form}>
           <div className={styles.modal__form_group}>

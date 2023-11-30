@@ -16,8 +16,7 @@ const DeleteModal = ({ deviceName, onDeleteClick, onCancelClick }) => {
     <div data-testid="delete-modal" className={styles.backdrop}>
       <div className={styles.modal}>
         <div className={styles.modal__header}>
-          <span className={styles.modal__title}>Delete Device?</span>
-          <CrossIcon onClick={onCancelClick} className={styles.modal__close}/>
+          <h2 className={styles.modal__title}>Delete Device?</h2>
         </div>
         <span className={styles.modal__text}>
           You are about to delete the device <span>{deviceName}</span>. This action cannot be undone.
