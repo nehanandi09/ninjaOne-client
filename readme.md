@@ -34,3 +34,16 @@ Make sure you have the following software installed on your machine:
 - Rename files to cohesive names and export them in index.js instead of naming them index.js
 - Improve hierearchy in text presented, H1 -> H2 -> H3 etc
 - Create a component 'IconButton' for where only icon is used as a button
+- Include focus styles for inputs, buttons
+
+### Changes made:
+
+- Improved hierarchy for text to follow accessibility guidelines
+- Replaced divs with Buttons where possible for a11y reasons
+- Improved Search, Filter, and Sort to work synchronously
+
+### Further improvements that can be made
+
+- Isolate the Filter functionality into its own reusable component instead of using SelectInput
+- Create a separate Sort component to facilitate reuse and maintainability
+- Move type definitions to a dedicated folder for a cleaner JSX file structure.
