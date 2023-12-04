@@ -2,7 +2,7 @@
 
 .selectContainer {
   position: relative;
-  border: 1px solid #D1D0D9;
+  border: 1px solid #d1d0d9;
   border-radius: 4px;
   font-size: $regular-text;
   display: flex;
@@ -12,6 +12,11 @@
   .innerLabel {
     display: inline-block;
   }
+}
+
+.focusContainer {
+  border: 1px solid $blue;
+  border-radius: 4px;
 }
 
 .outterLabel {
