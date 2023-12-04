@@ -35,15 +35,31 @@ Make sure you have the following software installed on your machine:
 - Improve hierearchy in text presented, H1 -> H2 -> H3 etc
 - Create a component 'IconButton' for where only icon is used as a button
 - Include focus styles for inputs, buttons
+- Device Modal doesn't use a Form
 
 ### Changes made:
 
-- Improved hierarchy for text to follow accessibility guidelines
-- Replaced divs with Buttons where possible for a11y reasons
+- Enhanced semantic text hierarchy for better accessibility and readability.
+- Replaced `<div>` elements with `<button>` elements for improved accessibility
 - Improved Search, Filter, and Sort to work synchronously
+- Used 'required' in input fields and removed error messages
+- Refactored code in DeviceModal to remove errors and improve code quality
 
 ### Further improvements that can be made
 
-- Isolate the Filter functionality into its own reusable component instead of using SelectInput
-- Create a separate Sort component to facilitate reuse and maintainability
-- Move type definitions to a dedicated folder for a cleaner JSX file structure.
+#### Code Improvements
+
+- Create a dedicated reusable component for filtering instead of relying on SelectInput.
+- Develop a separate component for sorting to enhance code reusability and maintainability.
+- Create a centralized Input component that can configure various input types (radio, checkbox, select, multi-select, text field) for better code organization and consistency.
+
+#### UI/UX improvements
+
+- Newly created device can be displayed on top of the list instead of bottom of the list, they can be displayed based on created or added date.
+- Implement pagination for the Device list to display a limited number of devices at a time. Consider fetching paginated items via API for better user experience and performance.
+- Display number of devices on top, as a `Total Devices: x` which changes based on filter.
+
+#### Code Organization
+
+- Move Type definitions to a dedicated folder to achieve a cleaner JSX file structure and improve code maintainability
+- Ensure proper file naming conventions for JSX files in subfolders by avoiding the use of generic 'index.jsx' filenames.
