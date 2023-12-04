@@ -83,8 +83,9 @@ const DeviceModal = ({
               data-testid={'name-input'}
               onChange={({ target }) => setName(target.value)}
               aria-label='System name'
+              required
             />
-            {!name && <small>This field is required!</small>}
+            {/**!name && <small>This field is required!</small>*/}
           </div>
           <div className={styles.modal__form_group}>
             <label>Device type *</label>
@@ -102,7 +103,9 @@ const DeviceModal = ({
               value={capacity}
               data-testid={'capacity-input'}
               onChange={({ target }) => setCapacity(target.value)}
+              aria-label='HDD capacity'
               type='number'
+              required
             />
           </div>
           <div className={styles.modal__buttons}>
