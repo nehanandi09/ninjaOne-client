@@ -96,7 +96,7 @@ const DeviceItem = ({ device, dataKey }) => {
         <div className={styles.device}>
           <div className={styles.device__header}>
             {returnDeviceIcon()}
-            <h3>{device.system_name}</h3>
+            <h3>{device.system_name.toUpperCase()}</h3>
           </div>
           <div className={styles.device__footer}>
             {`${capitalizedType} workstation - ${device.hdd_capacity} GB`}

@@ -32,8 +32,9 @@ const DeleteModal = ({
           </button>
         </div>
         <span className={styles.modal__text}>
-          You are about to delete the device <span>{deviceName}</span>
-          . This action cannot be undone.
+          You are about to delete the device{' '}
+          <span>{deviceName.toUpperCase()}</span>. This action cannot
+          be undone.
         </span>
         <div className={styles.modal__buttons}>
           <Button
