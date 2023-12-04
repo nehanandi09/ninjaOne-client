@@ -158,10 +158,10 @@ const DeviceItem = ({ device, dataKey }) => {
 
 DeviceItem.propTypes = {
   device: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
     system_name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
-    hdd_capacity: PropTypes.number.isRequired
+    hdd_capacity: PropTypes.string.isRequired
   }).isRequired,
   dataKey: PropTypes.string
 };
