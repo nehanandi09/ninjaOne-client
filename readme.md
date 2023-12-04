@@ -44,6 +44,10 @@ Make sure you have the following software installed on your machine:
 - Improved Search, Filter, and Sort to work synchronously
 - Used 'required' in input fields and removed error messages
 - Refactored code in DeviceModal to remove errors and improve code quality
+- Fixed functionality for the 'x' button in Sort and Filter
+- Added a micro interactiom with the 'x' button in modals.
+- Added `aria-label` for icon buttons, input fields, and everywhere necessary
+- Added focus states for input fields and to buttons
 
 ### Further improvements that can be made
 
@@ -52,6 +56,7 @@ Make sure you have the following software installed on your machine:
 - Create a dedicated reusable component for filtering instead of relying on SelectInput.
 - Develop a separate component for sorting to enhance code reusability and maintainability.
 - Create a centralized Input component that can configure various input types (radio, checkbox, select, multi-select, text field) for better code organization and consistency.
+- Implement localization using i18n.
 
 #### UI/UX improvements
 
