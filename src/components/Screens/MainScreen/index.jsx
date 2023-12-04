@@ -86,19 +86,22 @@ const MainScreen = () => {
   useEffect(() => {
     let filteredDevices = devices;
 
+    // Filter devices based on search
+    if (searchText) {
+      filteredDevices = filteredDevices.filter((device) =>
+        device.system_name
+          .toLowerCase()
+          .includes(searchText.toLowerCase())
+      );
+    }
   }, [devices, searchText, filterOption, sortOption]);
   /**
    * Handles the search functionality by filtering the devices based on the provided value.
    *
-   * @param {string} value - The search value entered by the user.
+   * @param {string} searchValue - The search value entered by the user.
    */
-  const handleSearch = (value) => {
-    let newList = devices.filter((device) => {
-      let deviceName = device.system_name.toLowerCase();
-      return deviceName.includes(value.toLowerCase());
-    });
-
-    setFilteredList(newList);
+  const handleSearch = (searchValue) => {
+    setSearchText(searchValue);
   };
 
   /**
