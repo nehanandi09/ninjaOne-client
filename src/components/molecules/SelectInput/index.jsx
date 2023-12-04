@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import Select from 'react-select';
 import { isMobile } from 'react-device-detect';
+import { useState } from 'react';
 
 import { ReactComponent as ArrowIcon } from '../../../assets/chevronDown.svg';
 
@@ -37,6 +38,9 @@ const SelectInput = ({
     })
   };
 
+  // Add focus state to add CSS class
+  const [focus, setFocus] = useState(false);
+
   const DropdownIndicator = () => <ArrowIcon />;
 
   return (
@@ -46,7 +50,12 @@ const SelectInput = ({
           {label}
         </label>
       )}
-      <div className={styles.selectContainer} data-testid={testId}>
+      <div
+        className={`${styles.selectContainer} ${
+          focus ? styles.focusContainer : ''
+        }`}
+        data-testid={testId}
+      >
         {label && !isMobile && (
           <label
             htmlFor='select-option'
@@ -66,6 +75,8 @@ const SelectInput = ({
           defaultValue={options.find(
             (option) => option.value === value
           )}
+          onFocus={() => setFocus(true)}
+          onBlur={() => setFocus(false)}
         />
       </div>
     </>
