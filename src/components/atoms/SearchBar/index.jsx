@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import { useState } from 'react';
-import {ReactComponent as SearchIcon} from '../../../assets/magnifyinGlass.svg'
-import styles from './SearchBar.module.scss'
+import { ReactComponent as SearchIcon } from '../../../assets/magnifyinGlass.svg';
+import styles from './SearchBar.module.scss';
 
 const SearchBar = ({ onChange }) => {
   // Focus state to toggle focus style
@@ -21,15 +21,15 @@ const SearchBar = ({ onChange }) => {
         onBlur={() => setFocus(false)}
       />
     </div>
-  )
-}
+  );
+};
 
 SearchBar.propTypes = {
-  onChange: PropTypes.func.isRequired,
-}
+  onChange: PropTypes.func.isRequired
+};
 
 SearchBar.defaultProps = {
   onChange: () => {}
 };
 
-export default SearchBar
+export default SearchBar;
