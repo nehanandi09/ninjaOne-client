@@ -94,6 +94,13 @@ const MainScreen = () => {
           .includes(searchText.toLowerCase())
       );
     }
+
+    // Filter devices based on Device Type
+    if (filterOption.length > 0 && !filterOption.includes('ALL')) {
+      filteredDevices = filteredDevices.filter((device) =>
+        filterOption.includes(device.type)
+      );
+    }
   }, [devices, searchText, filterOption, sortOption]);
   /**
    * Handles the search functionality by filtering the devices based on the provided value.
@@ -131,20 +138,11 @@ const MainScreen = () => {
   /**
    * Handles the filtering of devices based on the selected device types.
    *
-   * @param {Array} values - The selected device types.
+   * @param {Array} selectedOptions - The selected device types.
    */
-  const handleDeviceFilter = (values) => {
-    if (
-      values.some((item) => item.value === 'ALL') ||
-      !values.length
-    ) {
-      setFilteredList(devices);
-    } else {
-      const filteredList = devices.filter((device) =>
-        values.some((item) => item.value === device.type)
-      );
-      setFilteredList(filteredList);
-    }
+
+  const handleDeviceFilter = (selectedOptions) => {
+    setFilterOption(selectedOptions.map((option) => option.value));
   };
 
   const handleRefresh = () => {
