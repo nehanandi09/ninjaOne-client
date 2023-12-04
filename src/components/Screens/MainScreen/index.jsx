@@ -184,11 +184,10 @@ const MainScreen = () => {
             onChange={handleDeviceFilter}
           />
           <SelectInput
-            value={''}
             testId='sort-select'
             label='Sort by'
             options={sortOptions}
-            onChange={({ value }) => handleSortList(value)}
+            onChange={handleSortList}
           />
           <button
             aria-label='Refresh'
