@@ -20,6 +20,21 @@ const DeviceModal = ({
     device?.hdd_capacity || ''
   );
 
+  const deviceTypeOptions = [
+    {
+      label: 'Windows',
+      value: 'WINDOWS'
+    },
+    {
+      label: 'Mac',
+      value: 'MAC'
+    },
+    {
+      label: 'Linux',
+      value: 'LINUX'
+    }
+  ];
+
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => {
@@ -60,27 +75,8 @@ const DeviceModal = ({
               onChange={({ value }) => setType(value)}
               value={type}
               aria-label='Device type'
-              options={[
-                {
-                  label: 'Selected device',
-                  value: '',
-                  isDisabled: true
-                },
-                {
-                  label: 'Windows',
-                  value: 'WINDOWS'
-                },
-                {
-                  label: 'Mac',
-                  value: 'MAC'
-                },
-                {
-                  label: 'Linux',
-                  value: 'LINUX'
-                }
-              ]}
+              options={deviceTypeOptions}
             />
-            {!type && <small>This field is required!</small>}
           </div>
           <div className={styles.modal__form_group}>
             <label>HDD capacity (GB) *</label>
