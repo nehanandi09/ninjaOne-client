@@ -57,7 +57,10 @@ const DeviceModal = ({
             <CrossIcon className={styles.modal__closeIcon} />
           </button>
         </div>
-        <div className={styles.modal__form}>
+        <form
+          className={styles.modal__form}
+          onSubmit={() => onSubmitClick(name, type, capacity)}
+        >
           <div className={styles.modal__form_group}>
             <label>System name *</label>
             <input
@@ -86,30 +89,29 @@ const DeviceModal = ({
               onChange={({ target }) => setCapacity(target.value)}
               type='number'
             />
-            {!capacity && <small>This field is required!</small>}
           </div>
-        </div>
-        <div className={styles.modal__buttons}>
-          <Button
-            testId={'cancel-button'}
-            onClick={onCancelClick}
-            text={'Cancel'}
-            variant={'secondary'}
-          />
-          <Button
-            testId={'submit-button'}
-            isDisabled={
-              !(
-                name.length > 0 &&
-                type.length > 0 &&
-                capacity.length > 0
-              )
-            }
-            onClick={() => onSubmitClick(name, type, capacity)}
-            text={'Submit'}
-            variant={'primary'}
-          />
-        </div>
+          <div className={styles.modal__buttons}>
+            <Button
+              testId={'cancel-button'}
+              onClick={onCancelClick}
+              text={'Cancel'}
+              variant={'secondary'}
+            />
+            <Button
+              testId={'submit-button'}
+              isDisabled={
+                !(
+                  name.length > 0 &&
+                  type.length > 0 &&
+                  capacity.length > 0
+                )
+              }
+              type='submit'
+              text={'Submit'}
+              variant={'primary'}
+            />
+          </div>
+        </form>
       </div>
     </div>
   );
