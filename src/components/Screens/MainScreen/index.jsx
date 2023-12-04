@@ -134,6 +134,29 @@ const MainScreen = () => {
   };
 
   /**
+   * Handles the filtering of devices based on the selected device types.
+   *
+   * @param {Array} selectedOptions - The selected device types.
+   * Example: [ { label: 'Windows', value: 'WINDOWS' } ]
+   */
+
+  const handleDeviceFilter = (selectedOptions) => {
+    // Extract only value
+    setFilterOption(selectedOptions.map((option) => option.value));
+  };
+
+  /**
+   * Handles the sorting of the filtered devices list based on the selected sort option.
+   *
+   * @param {object} sortOption - The selected sort option.
+   * Example: {label: 'HDD Capacity Descending', value: 'HDD-DESC'}
+   */
+
+  const handleSortList = (sortOption) => {
+    setSortOption(sortOption);
+  };
+
+  /**
    * Handles the submission of the device modal form to create a new device.
    *
    * @param {string} name - The system name of the device.
@@ -157,29 +180,9 @@ const MainScreen = () => {
     }
   };
 
-  /**
-   * Handles the filtering of devices based on the selected device types.
-   *
-   * @param {Array} selectedOptions - The selected device types.
-   */
-
-  const handleDeviceFilter = (selectedOptions) => {
-    setFilterOption(selectedOptions.map((option) => option.value));
-  };
-
   const handleRefresh = () => {
     alert('refreshing devices list');
     fetchDevices();
-  };
-
-  /**
-   * Handles the sorting of the filtered devices list based on the selected sort option.
-   *
-   * @param {string} sortOption - The selected sort option.
-   */
-
-  const handleSortList = (sortOption) => {
-    setSortOption(sortOption);
   };
 
   return (
