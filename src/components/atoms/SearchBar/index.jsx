@@ -1,15 +1,24 @@
 import PropTypes from 'prop-types'
-
+import { useState } from 'react';
 import {ReactComponent as SearchIcon} from '../../../assets/magnifyinGlass.svg'
 import styles from './SearchBar.module.scss'
 
 const SearchBar = ({ onChange }) => {
+  // Focus state to toggle focus style
+  const [focus, setFocus] = useState(false);
   return (
-    <div data-testid="search-bar" className={styles.searchBar}>
+    <div
+      data-testid='search-bar'
+      className={`${styles.searchBar} ${
+        focus ? styles.focusContainer : ''
+      }`}
+    >
       <SearchIcon />
       <input
         onChange={({ target }) => onChange(target.value)}
         placeholder='Search'
+        onFocus={() => setFocus(true)}
+        onBlur={() => setFocus(false)}
       />
     </div>
   )
