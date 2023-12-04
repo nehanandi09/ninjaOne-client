@@ -101,7 +101,19 @@ const MainScreen = () => {
         filterOption.includes(device.type)
       );
     }
+
+    // Sort devices list
+    if (sortOption && devices) {
+      let sortedList = [...filteredDevices];
+
+      // Destrucutre to retrie value
+      const { label, value: field } = sortOption;
+      filteredDevices = sortedList.sort(dynamicSort[field]);
+    }
+
+    setFilteredList(filteredDevices);
   }, [devices, searchText, filterOption, sortOption]);
+
   // To assist with sorting
   const dynamicSort = {
     'HDD-DESC': (a, b) =>
