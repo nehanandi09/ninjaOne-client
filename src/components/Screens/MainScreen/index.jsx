@@ -69,11 +69,13 @@ const MainScreen = () => {
   const [createDevice] = useCreateDeviceMutation();
 
   useEffect(() => {
+    // Run on mounted
     fetchDevices();
+
     if (devices) {
       setFilteredList(devices);
     }
-  }, [devices, fetchDevices]);
+  }, []);
 
   /**
    * Handles the search functionality by filtering the devices based on the provided value.
