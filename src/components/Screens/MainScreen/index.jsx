@@ -62,6 +62,12 @@ const sortOptions = [
 const MainScreen = () => {
   const [deviceModalOpen, setDeviceModalOpen] = useState(false);
   const [filteredList, setFilteredList] = useState([]);
+  // Store text used for search
+  const [searchText, setSearchText] = useState('');
+  // Store selected filter types
+  const [filterOption, setFilterOption] = useState([]);
+  // Store sorting value
+  const [sortOption, setSortOption] = useState([]);
 
   const [fetchDevices, { data: devices }] =
     useLazyFetchDevicesQuery();
@@ -77,6 +83,10 @@ const MainScreen = () => {
     }
   }, []);
 
+  useEffect(() => {
+    let filteredDevices = devices;
+
+  }, [devices, searchText, filterOption, sortOption]);
   /**
    * Handles the search functionality by filtering the devices based on the provided value.
    *
