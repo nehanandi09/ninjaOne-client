@@ -153,25 +153,11 @@ const MainScreen = () => {
   /**
    * Handles the sorting of the filtered devices list based on the selected sort option.
    *
-   * @param {string} sort - The selected sort option.
+   * @param {string} sortOption - The selected sort option.
    */
-  const handleSortList = (sort) => {
-    let sortedList = [...filteredList];
 
-    const sortComparators = {
-      'HDD-DESC': (a, b) =>
-        parseInt(b.hdd_capacity) - parseInt(a.hdd_capacity),
-      'HDD-ASC': (a, b) =>
-        parseInt(a.hdd_capacity) - parseInt(b.hdd_capacity),
-      'NAME-ASC': (a, b) =>
-        a.system_name.localeCompare(b.system_name),
-      'NAME-DESC': (a, b) =>
-        b.system_name.localeCompare(a.system_name)
-    };
-
-    sortedList.sort(sortComparators[sort]);
-
-    setFilteredList(sortedList);
+  const handleSortList = (sortOption) => {
+    setSortOption(sortOption);
   };
 
   return (
