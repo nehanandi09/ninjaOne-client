@@ -15,7 +15,7 @@ const SearchBar = ({ onChange }) => {
     >
       <SearchIcon />
       <input
-        onChange={({ target }) => onChange(target.value)}
+        onChange={({ target }) => onChange(target.value.trim())}
         placeholder='Search'
         onFocus={() => setFocus(true)}
         onBlur={() => setFocus(false)}
