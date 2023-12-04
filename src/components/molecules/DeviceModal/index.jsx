@@ -42,6 +42,21 @@ const DeviceModal = ({
     };
   }, []);
 
+  /**
+   * Handle select for device types
+   * @param {object} deviceType
+   *
+   */
+
+  const handleDeviceTypeSelect = (deviceType) => {
+    // Early return if value is not set
+    if (!deviceType) {
+      setType('');
+      return;
+    }
+    setType(deviceType.value);
+  };
+
   return (
     <div data-testid={testId} className={styles.backdrop}>
       <div className={styles.modal}>
@@ -75,7 +90,7 @@ const DeviceModal = ({
             <label>Device type *</label>
             <SelectInput
               testId={'type-input'}
-              onChange={({ value }) => setType(value)}
+              onChange={(value) => handleDeviceTypeSelect(value)}
               value={type}
               aria-label='Device type'
               options={deviceTypeOptions}
