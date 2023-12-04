@@ -102,6 +102,16 @@ const MainScreen = () => {
       );
     }
   }, [devices, searchText, filterOption, sortOption]);
+  // To assist with sorting
+  const dynamicSort = {
+    'HDD-DESC': (a, b) =>
+      parseInt(b.hdd_capacity) - parseInt(a.hdd_capacity),
+    'HDD-ASC': (a, b) =>
+      parseInt(a.hdd_capacity) - parseInt(b.hdd_capacity),
+    'NAME-ASC': (a, b) => a.system_name.localeCompare(b.system_name),
+    'NAME-DESC': (a, b) => b.system_name.localeCompare(a.system_name)
+  };
+
   /**
    * Handles the search functionality by filtering the devices based on the provided value.
    *
