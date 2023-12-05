@@ -48,6 +48,7 @@ Make sure you have the following software installed on your machine:
 - Added a micro interactiom with the 'x' button in modals.
 - Added `aria-label` for icon buttons, input fields, and everywhere necessary
 - Added focus states for input fields and to buttons
+- Trimmed white spaces in forms, altered `system_name` to be posted to API after trimming and converting to uppercase
 
 ### Further improvements that can be made
 
