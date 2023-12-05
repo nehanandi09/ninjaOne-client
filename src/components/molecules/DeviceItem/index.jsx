@@ -71,7 +71,7 @@ const DeviceItem = ({ device, dataKey }) => {
    */
   const handleUpdateDevice = async (name, type, hdd) => {
     let deviceInfo = {
-      system_name: name,
+      system_name: name.trim().toUpperCase(),
       type: type,
       hdd_capacity: hdd,
       id: device.id
@@ -96,7 +96,7 @@ const DeviceItem = ({ device, dataKey }) => {
         <div className={styles.device}>
           <div className={styles.device__header}>
             {returnDeviceIcon()}
-            {device.system_name}
+            <h3>{device.system_name.toUpperCase()}</h3>
           </div>
           <div className={styles.device__footer}>
             {`${capitalizedType} workstation - ${device.hdd_capacity} GB`}
@@ -105,17 +105,21 @@ const DeviceItem = ({ device, dataKey }) => {
         <div
           ref={ref}
           data-testid='device-menu-toggle'
-          onClick={handleCollapseMenu}
           className={styles.container__options}
         >
-          <ThreeDotsIcon />
+          <button
+            aria-label='Open device menu'
+            onClick={handleCollapseMenu}
+            className={styles.container__menuButton}
+          >
+            <ThreeDotsIcon />
+          </button>
           {collapseOptions && (
             <div
               data-testid='device-menu'
               className={styles.container__menu}
             >
               <button
-                aria-label=''
                 className={styles.container__menuItem}
                 onClick={() => setEditModalOpen(true)}
               >
@@ -154,10 +158,10 @@ const DeviceItem = ({ device, dataKey }) => {
 
 DeviceItem.propTypes = {
   device: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
     system_name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
-    hdd_capacity: PropTypes.number.isRequired
+    hdd_capacity: PropTypes.string.isRequired
   }).isRequired,
   dataKey: PropTypes.string
 };

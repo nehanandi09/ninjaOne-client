@@ -1,6 +1,18 @@
-# NinjaOne React Test
+# NinjaOne React Test - Neha's implementation
 
-Hey guys! I've put everything I had in this project and I really hope that you like it!
+- [NinjaOne React Test - Neha's implementation](#ninjaone-react-test---nehas-implementation)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Changes made:](#changes-made)
+    - [Accessibility Improvements](#accessibility-improvements)
+    - [UI/UX improvements](#uiux-improvements)
+    - [Code Quality](#code-quality)
+  - [Demo Video:](#demo-video)
+  - [Further improvements that can be made](#further-improvements-that-can-be-made)
+    - [Code Improvements](#code-improvements)
+    - [UI/UX improvements](#uiux-improvements-1)
+    - [Code Organization](#code-organization)
+  - [Bugs found](#bugs-found)
 
 ### Prerequisites
 
@@ -12,12 +24,65 @@ Make sure you have the following software installed on your machine:
 ### Installation
 
 1. Clone the repository
-2. Navigate to the project directory `cd ninjaone-cliet`
+2. Navigate to the project directory `cd ninjaone-client`
 3. Install dependencies `npm install`
 4. Make sure that you have the backend server provided installed and running, and if the port that you are using is not :3000, simply the `baseurl` variable at the index.js file at `state/services/devices/`
 5. Have fun.
 
-## Neha's Implementation
+---
+
+### Changes made:
+
+#### Accessibility Improvements
+
+- Improved semantic text hierarchy for better readability and accessibility
+- Replaced `<div>` with `<button>` elements
+- Added `aria-label` attributes where needed
+
+#### UI/UX improvements
+
+- Synchronized Search, Filter, and Sort functions for a smoother user experience
+- Refactored `DeviceModal` component code for error removal and code quality enhancement
+- Added a microinteraction for the 'x' button within modal dialogs
+- Introduced focus states for input fields and buttons to enhance UI
+
+#### Code Quality
+
+- Employed 'required' attribute for input fields, eliminating redundant error messages
+- Trimmed form white spaces; transformed `system_name` to uppercase before API submission. This ensures that data values stay consistent throughout.
+
+---
+
+### Demo Video:
+
+https://github.com/nehanandi09/ninjaOne-client/assets/43758271/893bcb65-ae86-4af6-a244-cc93e18d426d
+
+---
+
+### Further improvements that can be made
+
+#### Code Improvements
+
+- Create a dedicated reusable component for filtering instead of relying on SelectInput.
+- Develop a separate component for sorting to enhance code reusability and maintainability.
+- Create a centralized Input component that can configure various input types (radio, checkbox, select, multi-select, text field) for better code organization and consistency.
+- Implement localization using i18n.
+- Refactor `Button` component to accomdate various button types - icons, small buttons, large buttons, and more.
+- Add more unit tests related to search, filter, and sort functionality.
+
+#### UI/UX improvements
+
+- Newly created device can be displayed on top of the list instead of bottom of the list, they can be displayed based on created or added date.
+- Implement pagination for the Device list to display a limited number of devices at a time. Consider fetching paginated items via API for better user experience and performance.
+- Display number of devices on top, as a `Total Devices: x` which changes based on filter.
+- Implement alert notifications for various device-related actions, such as editing, adding, or deleting a device. These alerts should dynamically respond to different states, providing informative feedback based on the success or failure of the corresponding queries.
+
+#### Code Organization
+
+- Move Type definitions to a dedicated folder to achieve a cleaner JSX file structure and improve code maintainability
+- Ensure proper file naming conventions for JSX files in subfolders by avoiding the use of generic 'index.jsx' filenames.
+
+---
 
 ### Bugs found
 
@@ -34,3 +99,5 @@ Make sure you have the following software installed on your machine:
 - Rename files to cohesive names and export them in index.js instead of naming them index.js
 - Improve hierearchy in text presented, H1 -> H2 -> H3 etc
 - Create a component 'IconButton' for where only icon is used as a button
+- Include focus styles for inputs, buttons
+- Device Modal doesn't use a Form

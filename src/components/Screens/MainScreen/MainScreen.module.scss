@@ -41,6 +41,10 @@
       cursor: pointer;
       animation: spin 2s infinite linear;
     }
+    &:focus {
+      outline: 1.75px solid $deep-blue;
+      border-radius: 50%;
+    }
   }
 }
 

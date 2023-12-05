@@ -1,8 +1,23 @@
-@import "./style/variables";
+@import './style/variables';
 
 body {
   padding: 0;
   margin: 0;
   font-family: $font-family;
   color: $black;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0px;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+}
+
+.focusContainer {
+  outline: 1.75px solid $deep-blue;
 }

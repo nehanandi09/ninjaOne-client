@@ -62,6 +62,12 @@ const sortOptions = [
 const MainScreen = () => {
   const [deviceModalOpen, setDeviceModalOpen] = useState(false);
   const [filteredList, setFilteredList] = useState([]);
+  // Store text used for search
+  const [searchText, setSearchText] = useState('');
+  // Store selected filter types
+  const [filterOption, setFilterOption] = useState([]);
+  // Store sorting value
+  const [sortOption, setSortOption] = useState([]);
 
   const [fetchDevices, { data: devices }] =
     useLazyFetchDevicesQuery();
@@ -69,24 +75,85 @@ const MainScreen = () => {
   const [createDevice] = useCreateDeviceMutation();
 
   useEffect(() => {
+    // Run on mounted
     fetchDevices();
+
     if (devices) {
       setFilteredList(devices);
     }
-  }, [devices, fetchDevices]);
+  }, []);
+
+  useEffect(() => {
+    let filteredDevices = devices;
+
+    // Filter devices based on search
+    if (searchText) {
+      filteredDevices = filteredDevices.filter((device) =>
+        device.system_name
+          .toLowerCase()
+          .includes(searchText.toLowerCase())
+      );
+    }
+
+    // Filter devices based on Device Type
+    if (filterOption.length > 0 && !filterOption.includes('ALL')) {
+      filteredDevices = filteredDevices.filter((device) =>
+        filterOption.includes(device.type)
+      );
+    }
+
+    // Sort devices list
+    if (sortOption && devices) {
+      let sortedList = [...filteredDevices];
+
+      // Destrucutre to retrie value
+      const { label, value: field } = sortOption;
+      filteredDevices = sortedList.sort(dynamicSort[field]);
+    }
+
+    setFilteredList(filteredDevices);
+  }, [devices, searchText, filterOption, sortOption]);
+
+  // To assist with sorting
+  const dynamicSort = {
+    'HDD-DESC': (a, b) =>
+      parseInt(b.hdd_capacity) - parseInt(a.hdd_capacity),
+    'HDD-ASC': (a, b) =>
+      parseInt(a.hdd_capacity) - parseInt(b.hdd_capacity),
+    'NAME-ASC': (a, b) => a.system_name.localeCompare(b.system_name),
+    'NAME-DESC': (a, b) => b.system_name.localeCompare(a.system_name)
+  };
 
   /**
    * Handles the search functionality by filtering the devices based on the provided value.
    *
-   * @param {string} value - The search value entered by the user.
+   * @param {string} searchValue - The search value entered by the user.
    */
-  const handleSearch = (value) => {
-    let newList = devices.filter((device) => {
-      let deviceName = device.system_name.toLowerCase();
-      return deviceName.includes(value.toLowerCase());
-    });
+  const handleSearch = (searchValue) => {
+    setSearchText(searchValue);
+  };
 
-    setFilteredList(newList);
+  /**
+   * Handles the filtering of devices based on the selected device types.
+   *
+   * @param {Array} selectedOptions - The selected device types.
+   * Example: [ { label: 'Windows', value: 'WINDOWS' } ]
+   */
+
+  const handleDeviceFilter = (selectedOptions) => {
+    // Extract only value
+    setFilterOption(selectedOptions.map((option) => option.value));
+  };
+
+  /**
+   * Handles the sorting of the filtered devices list based on the selected sort option.
+   *
+   * @param {object} sortOption - The selected sort option.
+   * Example: {label: 'HDD Capacity Descending', value: 'HDD-DESC'}
+   */
+
+  const handleSortList = (sortOption) => {
+    setSortOption(sortOption);
   };
 
   /**
@@ -98,7 +165,7 @@ const MainScreen = () => {
    */
   const handleSubmitModal = async (name, type, capacity) => {
     const newDevice = {
-      system_name: name,
+      system_name: name.trim().toUpperCase(),
       type: type,
       hdd_capacity: capacity
     };
@@ -113,52 +180,9 @@ const MainScreen = () => {
     }
   };
 
-  /**
-   * Handles the filtering of devices based on the selected device types.
-   *
-   * @param {Array} values - The selected device types.
-   */
-  const handleDeviceFilter = (values) => {
-    if (
-      values.some((item) => item.value === 'ALL') ||
-      !values.length
-    ) {
-      setFilteredList(devices);
-    } else {
-      const filteredList = devices.filter((device) =>
-        values.some((item) => item.value === device.type)
-      );
-      setFilteredList(filteredList);
-    }
-  };
-
   const handleRefresh = () => {
     alert('refreshing devices list');
     fetchDevices();
-  };
-
-  /**
-   * Handles the sorting of the filtered devices list based on the selected sort option.
-   *
-   * @param {string} sort - The selected sort option.
-   */
-  const handleSortList = (sort) => {
-    let sortedList = [...filteredList];
-
-    const sortComparators = {
-      'HDD-DESC': (a, b) =>
-        parseInt(b.hdd_capacity) - parseInt(a.hdd_capacity),
-      'HDD-ASC': (a, b) =>
-        parseInt(a.hdd_capacity) - parseInt(b.hdd_capacity),
-      'NAME-ASC': (a, b) =>
-        a.system_name.localeCompare(b.system_name),
-      'NAME-DESC': (a, b) =>
-        b.system_name.localeCompare(a.system_name)
-    };
-
-    sortedList.sort(sortComparators[sort]);
-
-    setFilteredList(sortedList);
   };
 
   return (
@@ -166,7 +190,7 @@ const MainScreen = () => {
       <Header />
       <div className={styles.contentWrapper}>
         <div className={styles.topContainer}>
-          <span className={styles.topContainer__title}>Devices</span>
+          <h1 className={styles.topContainer__title}>Devices</h1>
           <Button
             testId={'add-button'}
             icon={'plus'}
@@ -185,13 +209,13 @@ const MainScreen = () => {
             onChange={handleDeviceFilter}
           />
           <SelectInput
-            value={''}
             testId='sort-select'
             label='Sort by'
             options={sortOptions}
-            onChange={({ value }) => handleSortList(value)}
+            onChange={handleSortList}
           />
-          <div
+          <button
+            aria-label='Refresh'
             className={styles.filtersBar__refreshContainer}
             onClick={handleRefresh}
           >
@@ -199,7 +223,7 @@ const MainScreen = () => {
               data-testid='refresh-icon'
               className={styles.filtersBar__refresh}
             />
-          </div>
+          </button>
         </div>
         <DeviceList devicesList={filteredList} title={'Devices'} />
       </div>
