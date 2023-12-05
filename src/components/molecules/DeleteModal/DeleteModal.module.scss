@@ -34,13 +34,10 @@
   &__close {
     &:hover {
       cursor: pointer;
+      transform: scale(1.15);
     }
-  }
-  &__closeIcon {
-    &:hover {
-      width: 18px;
-      height: 18px;
-      transition: ease-in-out 0.1s;
+    &:focus {
+      outline: 1.75px solid $deep-blue;
     }
   }
   &__title {
