@@ -1,6 +1,6 @@
 @import '../../../style/_variables.scss';
 
-.button{
+.button {
   padding: 12px;
   border-radius: 4px;
   border: none;
@@ -21,7 +21,11 @@
     cursor: pointer;
     transform: scale(1.05);
   }
-  
+
+  &:focus {
+    outline: 1.75px solid $black;
+  }
+
   &__text {
     font-family: $font-family;
     font-weight: 500;
