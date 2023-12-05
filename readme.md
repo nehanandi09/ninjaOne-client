@@ -45,7 +45,7 @@ Make sure you have the following software installed on your machine:
 - Replaced `<div>` with `<button>` elements
 - Added `aria-label` attributes where needed
 
-#### UI/UX Improvements
+#### UI/UX improvements
 
 - Synchronized Search, Filter, and Sort functions for a smoother user experience
 - Refactored `DeviceModal` component code for error removal and code quality enhancement
