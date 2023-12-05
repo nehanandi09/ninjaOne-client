@@ -29,7 +29,7 @@
         transition: ease-in-out 0.2s;
       }
       &:focus {
-        outline: 1px solid $blue;
+        outline: 1.75px solid $deep-blue;
       }
     }
     #{ $self }__menu {
