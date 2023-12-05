@@ -60,7 +60,7 @@ const DeviceModal = ({
   return (
     <div data-testid={testId} className={styles.backdrop}>
       <div className={styles.modal}>
-        <div className={styles.modal__header}>
+        <div aria-modal={true} className={styles.modal__header}>
           <h2 className={styles.modal__title}>
             {device ? 'Edit device' : 'Add device'}
           </h2>
