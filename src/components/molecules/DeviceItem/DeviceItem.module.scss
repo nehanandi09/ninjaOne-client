@@ -29,8 +29,7 @@
         transition: ease-in-out 0.2s;
       }
       &:focus {
-        border: 1px solid $blue;
-        border-radius: 2px;
+        outline: 1px solid $blue;
       }
     }
     #{ $self }__menu {
