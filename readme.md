@@ -1,4 +1,4 @@
-# NinjaOne React Test - Neha's implementation
+# NinjaOne React Test - Neha
 
 - [NinjaOne React Test - Neha's implementation](#ninjaone-react-test---nehas-implementation)
   - [Prerequisites](#prerequisites)
