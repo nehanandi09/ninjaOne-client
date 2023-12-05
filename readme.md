@@ -1,5 +1,19 @@
 # NinjaOne React Test - Neha's implementation
 
+- [NinjaOne React Test - Neha's implementation](#ninjaone-react-test---nehas-implementation)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Changes made:](#changes-made)
+    - [Accessibility Improvements](#accessibility-improvements)
+    - [UI/UX improvements](#uiux-improvements)
+    - [Code Quality](#code-quality)
+  - [Demo Video:](#demo-video)
+  - [Further improvements that can be made](#further-improvements-that-can-be-made)
+    - [Code Improvements](#code-improvements)
+    - [UI/UX improvements](#uiux-improvements-1)
+    - [Code Organization](#code-organization)
+  - [Bugs found](#bugs-found)
+
 ### Prerequisites
 
 Make sure you have the following software installed on your machine:
@@ -43,7 +57,7 @@ Make sure you have the following software installed on your machine:
 
 https://github.com/nehanandi09/ninjaOne-client/assets/43758271/893bcb65-ae86-4af6-a244-cc93e18d426d
 
-___
+---
 
 ### Further improvements that can be made
 
@@ -53,6 +67,8 @@ ___
 - Develop a separate component for sorting to enhance code reusability and maintainability.
 - Create a centralized Input component that can configure various input types (radio, checkbox, select, multi-select, text field) for better code organization and consistency.
 - Implement localization using i18n.
+- Refactor `Button` component to accomdate various button types - icons, small buttons, large buttons, and more.
+- Add more unit tests related to search, filter, and sort functionality.
 
 #### UI/UX improvements
 
