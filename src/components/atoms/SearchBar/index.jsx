@@ -10,7 +10,7 @@ const SearchBar = ({ onChange }) => {
     <div
       data-testid='search-bar'
       className={`${styles.searchBar} ${
-        focus ? styles.focusContainer : ''
+        isFocused ? 'focusContainer' : ''
       }`}
     >
       <SearchIcon />

@@ -52,7 +52,7 @@ const SelectInput = ({
       )}
       <div
         className={`${styles.selectContainer} ${
-          focus ? styles.focusContainer : ''
+          isFocused ? 'focusContainer' : ''
         }`}
         data-testid={testId}
       >
