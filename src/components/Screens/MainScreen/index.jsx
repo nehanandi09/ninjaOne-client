@@ -165,7 +165,7 @@ const MainScreen = () => {
    */
   const handleSubmitModal = async (name, type, capacity) => {
     const newDevice = {
-      system_name: name,
+      system_name: name.trim().toUpperCase(),
       type: type,
       hdd_capacity: capacity
     };

@@ -71,7 +71,7 @@ const DeviceItem = ({ device, dataKey }) => {
    */
   const handleUpdateDevice = async (name, type, hdd) => {
     let deviceInfo = {
-      system_name: name,
+      system_name: name.trim().toUpperCase(),
       type: type,
       hdd_capacity: hdd,
       id: device.id
