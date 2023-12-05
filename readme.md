@@ -19,24 +19,6 @@ Make sure you have the following software installed on your machine:
 
 ## Neha's Implementation
 
-### Bugs found
-
-- The 'x' button in Sorting doesn't have the right functionality
-- Searching through a filtered list displays items from outside the filter
-- Clearing Search when there is a filter on displays all the items again
-- The same as above happens with Sort, they're not synchronous
-- Display the newly created items at top
-- Display results as an alert on the UI instead of displaying an alert above
-- Pagination
-- Replace divs with meaningful buttons
-- Implement i18n across for localisation
-- Put filter, sort, search in their own components for reusability
-- Rename files to cohesive names and export them in index.js instead of naming them index.js
-- Improve hierearchy in text presented, H1 -> H2 -> H3 etc
-- Create a component 'IconButton' for where only icon is used as a button
-- Include focus styles for inputs, buttons
-- Device Modal doesn't use a Form
-
 ### Changes made:
 
 #### Accessibility Improvements
@@ -56,6 +38,8 @@ Make sure you have the following software installed on your machine:
 
 - Employed 'required' attribute for input fields, eliminating redundant error messages
 - Trimmed form white spaces; transformed `system_name` to uppercase before API submission. This ensures that data values stay consistent throughout.
+
+---
 
 ### Further improvements that can be made
 
@@ -77,3 +61,23 @@ Make sure you have the following software installed on your machine:
 
 - Move Type definitions to a dedicated folder to achieve a cleaner JSX file structure and improve code maintainability
 - Ensure proper file naming conventions for JSX files in subfolders by avoiding the use of generic 'index.jsx' filenames.
+
+---
+
+### Bugs found
+
+- The 'x' button in Sorting doesn't have the right functionality
+- Searching through a filtered list displays items from outside the filter
+- Clearing Search when there is a filter on displays all the items again
+- The same as above happens with Sort, they're not synchronous
+- Display the newly created items at top
+- Display results as an alert on the UI instead of displaying an alert above
+- Pagination
+- Replace divs with meaningful buttons
+- Implement i18n across for localisation
+- Put filter, sort, search in their own components for reusability
+- Rename files to cohesive names and export them in index.js instead of naming them index.js
+- Improve hierearchy in text presented, H1 -> H2 -> H3 etc
+- Create a component 'IconButton' for where only icon is used as a button
+- Include focus styles for inputs, buttons
+- Device Modal doesn't use a Form
