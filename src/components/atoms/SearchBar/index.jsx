@@ -4,8 +4,8 @@ import { ReactComponent as SearchIcon } from '../../../assets/magnifyinGlass.svg
 import styles from './SearchBar.module.scss';
 
 const SearchBar = ({ onChange }) => {
-  // Focus state to toggle focus style
-  const [focus, setFocus] = useState(false);
+  // isFocused state to toggle isFocused style
+  const [isFocused, setIsFocused] = useState(false);
   return (
     <div
       data-testid='search-bar'
@@ -17,8 +17,8 @@ const SearchBar = ({ onChange }) => {
       <input
         onChange={({ target }) => onChange(target.value.trim())}
         placeholder='Search'
-        onFocus={() => setFocus(true)}
-        onBlur={() => setFocus(false)}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
       />
     </div>
   );

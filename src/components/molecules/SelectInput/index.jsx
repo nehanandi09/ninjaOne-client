@@ -38,8 +38,8 @@ const SelectInput = ({
     })
   };
 
-  // Add focus state to add CSS class
-  const [focus, setFocus] = useState(false);
+  // Add isFocused state to add CSS class
+  const [isFocused, setIsFocused] = useState(false);
 
   const DropdownIndicator = () => <ArrowIcon />;
 
@@ -75,8 +75,8 @@ const SelectInput = ({
           defaultValue={options.find(
             (option) => option.value === value
           )}
-          onFocus={() => setFocus(true)}
-          onBlur={() => setFocus(false)}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
         />
       </div>
     </>
