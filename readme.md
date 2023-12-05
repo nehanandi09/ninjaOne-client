@@ -46,12 +46,14 @@ Make sure you have the following software installed on your machine:
 - Added `aria-label` attributes where needed
 
 #### UI/UX
+
 - Synchronized Search, Filter, and Sort functions for a smoother user experience
 - Refactored `DeviceModal` component code for error removal and code quality enhancement
 - Added a microinteraction for the 'x' button within modal dialogs
 - Introduced focus states for input fields and buttons to enhance UI
 
 #### Code Quality
+
 - Employed 'required' attribute for input fields, eliminating redundant error messages
 - Trimmed form white spaces; transformed `system_name` to uppercase before API submission. This ensures that data values stay consistent throughout.
 
