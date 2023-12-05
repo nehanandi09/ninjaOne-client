@@ -39,16 +39,21 @@ Make sure you have the following software installed on your machine:
 
 ### Changes made:
 
-- Enhanced semantic text hierarchy for better accessibility and readability.
-- Replaced `<div>` elements with `<button>` elements for improved accessibility
-- Improved Search, Filter, and Sort to work synchronously
-- Used 'required' in input fields and removed error messages
-- Refactored code in DeviceModal to remove errors and improve code quality
-- Fixed functionality for the 'x' button in Sort and Filter
-- Added a micro interactiom with the 'x' button in modals.
-- Added `aria-label` for icon buttons, input fields, and everywhere necessary
-- Added focus states for input fields and to buttons
-- Trimmed white spaces in forms, altered `system_name` to be posted to API after trimming and converting to uppercase
+#### Accessibility Improvements
+
+- Improved semantic text hierarchy for better readability and accessibility
+- Replaced `<div>` with `<button>` elements
+- Added `aria-label` attributes where needed
+
+#### UI/UX
+- Synchronized Search, Filter, and Sort functions for a smoother user experience
+- Refactored `DeviceModal` component code for error removal and code quality enhancement
+- Added a microinteraction for the 'x' button within modal dialogs
+- Introduced focus states for input fields and buttons to enhance UI
+
+#### Code Quality
+- Employed 'required' attribute for input fields, eliminating redundant error messages
+- Trimmed form white spaces; transformed `system_name` to uppercase before API submission. This ensures that data values stay consistent throughout.
 
 ### Further improvements that can be made
 
@@ -64,6 +69,7 @@ Make sure you have the following software installed on your machine:
 - Newly created device can be displayed on top of the list instead of bottom of the list, they can be displayed based on created or added date.
 - Implement pagination for the Device list to display a limited number of devices at a time. Consider fetching paginated items via API for better user experience and performance.
 - Display number of devices on top, as a `Total Devices: x` which changes based on filter.
+- Implement alert notifications for various device-related actions, such as editing, adding, or deleting a device. These alerts should dynamically respond to different states, providing informative feedback based on the success or failure of the corresponding queries.
 
 #### Code Organization
 
