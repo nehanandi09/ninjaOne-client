@@ -1,6 +1,4 @@
-# NinjaOne React Test
-
-Hey guys! I've put everything I had in this project and I really hope that you like it!
+# NinjaOne React Test - Neha's implementation
 
 ### Prerequisites
 
@@ -12,12 +10,12 @@ Make sure you have the following software installed on your machine:
 ### Installation
 
 1. Clone the repository
-2. Navigate to the project directory `cd ninjaone-cliet`
+2. Navigate to the project directory `cd ninjaone-client`
 3. Install dependencies `npm install`
 4. Make sure that you have the backend server provided installed and running, and if the port that you are using is not :3000, simply the `baseurl` variable at the index.js file at `state/services/devices/`
 5. Have fun.
 
-## Neha's Implementation
+---
 
 ### Changes made:
 
@@ -40,6 +38,12 @@ Make sure you have the following software installed on your machine:
 - Trimmed form white spaces; transformed `system_name` to uppercase before API submission. This ensures that data values stay consistent throughout.
 
 ---
+
+### Demo Video:
+
+https://github.com/nehanandi09/ninjaOne-client/assets/43758271/893bcb65-ae86-4af6-a244-cc93e18d426d
+
+___
 
 ### Further improvements that can be made
 
